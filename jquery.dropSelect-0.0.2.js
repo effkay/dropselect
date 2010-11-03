@@ -5,25 +5,14 @@
  */
 
 (function($) {
-
-    // Set up namespace for the plugin
-    var namespace = 'dropSelect';
-
-    // Public variables and methods
-    $[nsp] = {
-    
+    $.fn.dropSelect = function(options) {
+        var opts = $.extend({}, $.fn.dropSelect.defaults, options);
     };
 
-    // Private variables and functions
-    var _ = {
-
-    };
-
-    $.fn['dropSelect'] = function() {
-        var localOpts = $.extend();
-        
-
-
+    $.fn.dropSelect.defaults = {
+        hide: true
+        // TODO: maybe extend this to hide_select, hide_submit
+        // TODO: maybe add onChange callback? or just ajax submit url?
     };
 
 })(jQuery);
