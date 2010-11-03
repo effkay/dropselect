@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>dropselect demo</title>
+    <link href='./demo.css' rel='stylesheet' />
+    <script src='../old/jquery-1.3.2.js'></script>
+    <script src='../old/jquery.dropSelect-0.0.1.js'></script>
+  </head>
+  <body>
+    <h1>dropselect demo</h1>
+    <h2>Not hiding select element</h2>
+    <select id='demo1'>
+      <option>an option</option>
+      <option>another option</option>
+      <option>your last option</option>
+    </select>
+    <h2>Hiding select element</h2>
+    <select id='demo2'>
+      <option>an option</option>
+      <option>another option</option>
+      <option>your last option</option>
+    </select>
+    <script type='text/javascript'>
+      //<![CDATA[
+        $(document).ready(function() {
+            $('#demo1').dropSelect();
+        });
+      //]]>
+    </script>
+  </body>
+</html>
