@@ -2,6 +2,7 @@
  * TODO: title should be from selected option
  * TODO: make stylable trough options 
  * TODO: ability to add custom class to menu, button etc
+ * TODO: 3 styles: top/bottom/centered menu
  *
  */
 
