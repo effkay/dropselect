@@ -9,22 +9,23 @@
     $.fn.dropSelect = function(options) {
         var opts = $.extend({}, $.fn.dropSelect.defaults, options);
         return this.each(function() {
-          $this = $(this);
+            $this = $(this);
 
-          button = $('<div class="dropselect-button">' + $this.find('option:selected').text() + '</div>').insertAfter(this);
-          dropdown = $('<ul class="dropselect-menu"></ul>').insertAfter(button);
+            button = $('<div class="dropselect-button">' + $this.find('option:selected').text() + '</div>').insertAfter(this);
+            dropdown = $('<ul class="dropselect-menu"></ul>').insertAfter(button);
 
-          $this.children().each(function() {
-              var option = $(this);
-              if (option.attr('selected') == true) {
-                  dropdown.append('<li class="selected">' + option.text() + '</li>');
-              } else {
-                  dropdown.append('<li>' + option.text() + '</li>');
-              }
-          });
+            // extract below code into buildList();
+            $this.children().each(function() {
+                var option = $(this);
+                if (option.attr('selected') == true) {
+                    dropdown.append('<li class="selected">' + option.text() + '</li>');
+                } else {
+                    dropdown.append('<li>' + option.text() + '</li>');
+                }
+            });
 
-          // TODO: attach behaviour to button
-          // TODO: attach behaviour to menu links
+            // TODO: attach behaviour to button
+            // TODO: attach behaviour to menu links
         });
     };
 
