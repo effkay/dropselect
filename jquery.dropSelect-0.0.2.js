@@ -1,5 +1,4 @@
 /*
- * TODO: title should be from selected option
  * TODO: make stylable trough options 
  * TODO: ability to add custom class to menu, button etc
  * TODO: 3 styles: top/bottom/centered menu
@@ -15,24 +14,32 @@
             button = $('<div class="dropselect-button">' + $this.find('option:selected').text() + '</div>').insertAfter(this);
             dropdown = $('<ul class="dropselect-menu"></ul>').insertAfter(button);
 
-            // extract below code into buildList();
-            $this.children().each(function() {
-                var option = $(this);
-                if (option.attr('selected') == true) {
-                    dropdown.append('<li class="selected">' + option.text() + '</li>');
-                } else {
-                    dropdown.append('<li>' + option.text() + '</li>');
-                }
-            });
+            buildMenu($this);
+            dropdown.hide();
+
+            if (opts.hide_select == true) {
+                $this.hide();
+            };
 
             // TODO: attach behaviour to button
             // TODO: attach behaviour to menu links
+            
+        });
+    };
+
+    function buildMenu(select) {
+        select.children().each(function() {
+            var option = $(this);
+            if (option.attr('selected') == true) {
+                dropdown.append('<li class="selected">' + option.text() + '</li>');
+            } else {
+                dropdown.append('<li>' + option.text() + '</li>');
+            };
         });
     };
 
     $.fn.dropSelect.defaults = {
-        hide: true
-        // TODO: maybe extend this to hide_select, hide_submit
+        hide_select: true
         // TODO: maybe add onChange callback? or just ajax submit url?
     };
 
