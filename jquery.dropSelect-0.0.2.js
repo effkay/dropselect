@@ -11,23 +11,39 @@
         return this.each(function() {
             $this = $(this);
 
-            button = $('<div class="dropselect-button">' + $this.find('option:selected').text() + '</div>').insertAfter(this);
-            dropdown = $('<ul class="dropselect-menu"></ul>').insertAfter(button);
+            var button = $('<div class="dropselect-button">' + $this.find('option:selected').text() + '</div>').insertAfter(this);
+            var dropdown = $('<ul class="dropselect-menu"></ul>').insertAfter(button);
 
-            buildMenu($this);
+            buildMenu($this, dropdown);
             dropdown.hide();
 
             if (opts.hide_select == true) {
                 $this.hide();
             };
 
+            // STYLING??
+            button.css({
+              'background-color': '#252525',
+              'color': '#fff',
+              'width': '120px',
+              'padding': '10px',
+              'cursor': 'pointer',
+            });
+
             // TODO: attach behaviour to button
+            
+            button.toggle(function() {
+                dropdown.show();
+                }, function() {
+                dropdown.hide();
+            });
+
             // TODO: attach behaviour to menu links
             
         });
     };
 
-    function buildMenu(select) {
+    function buildMenu(select, dropdown) {
         select.children().each(function() {
             var option = $(this);
             if (option.attr('selected') == true) {
