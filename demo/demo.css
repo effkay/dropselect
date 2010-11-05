@@ -4,3 +4,20 @@ body {
   color: #222;
   background-color: rgb(250, 250, 250);
 }
+
+.dropselect-button {
+  background-color: #252525;
+  display: block;
+  color: #fff;
+  width: 120px;
+  padding: 10px;
+  margin: 0px;
+  text-align: center;
+}
+
+.dropselect-menu {
+  background-color: #999999;
+  margin: 0px;
+  width: 120px;
+  padding: 10px;
+}
