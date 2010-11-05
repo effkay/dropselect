@@ -10,8 +10,9 @@
         var opts = $.extend({}, $.fn.dropSelect.defaults, options);
         return this.each(function() {
             $this = $(this);
-
-            var button = $('<div class="dropselect-button">' + $this.find('option:selected').text() + '</div>').insertAfter(this);
+            
+            // TODO: wrapp stuff in container div? 
+            var button = $('<a href="" class="dropselect-button">' + $this.find('option:selected').text() + '</a>').insertAfter(this);
             var dropdown = $('<ul class="dropselect-menu"></ul>').insertAfter(button);
 
             buildMenu($this, dropdown);
@@ -20,17 +21,6 @@
             if (opts.hide_select == true) {
                 $this.hide();
             };
-
-            // STYLING??
-            button.css({
-              'background-color': '#252525',
-              'color': '#fff',
-              'width': '120px',
-              'padding': '10px',
-              'cursor': 'pointer',
-            });
-
-            // TODO: attach behaviour to button
             
             button.toggle(function() {
                 dropdown.show();
