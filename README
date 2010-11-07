@@ -1,4 +1,24 @@
-references:
+What it does
+------------
+
+It replaces a given select element with an easily stylable dropdown. Usage:
+
+  $('#your-select-id').dropSelect();
+
+Yes, that's it, for now.
+
+TODO
+----
+
+o Provide 3 built in styles: top/bottom/centered (currently only bottom style is available, which means the dropdown slides down)
+o Provide callbacks so you can add your own animations to the menu
+o Publish on jQuery plugins page
+
+REFERENCES
+----------
+
+Since this is my first jQuery plugin, I needed some help:
+
   http://docs.jquery.com/Plugins/Authoring
   http://www.learningjquery.com/2007/10/a-plugin-development-pattern
   http://remysharp.com/2010/06/03/signs-of-a-poorly-written-jquery-plugin/

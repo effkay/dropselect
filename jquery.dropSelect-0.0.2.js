@@ -1,6 +1,4 @@
 /*
- * TODO: ability to add custom class to menu, button etc
- * TODO: 3 styles: top/bottom/centered menu
  *
  */
 
