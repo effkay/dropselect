@@ -1,23 +1,36 @@
-
-
 body {
-  color: #222;
-  background-color: rgb(250, 250, 250);
-}
+  color: #222222;
+  background-color: #fafafa;
+  font-family: "Helvetica"; }
 
-.dropselect-button {
-  background-color: #252525;
+a.dropselect-button {
+  background-color: #3a4458;
   display: block;
-  color: #fff;
   width: 120px;
-  padding: 10px;
   margin: 0px;
+  padding: 0px;
   text-align: center;
-}
+  color: white;
+  text-decoration: none;
+  height: 32px;
+  line-height: 32px; }
 
 .dropselect-menu {
-  background-color: #999999;
+  background-color: #cadadf;
   margin: 0px;
+  padding: 0px;
   width: 120px;
-  padding: 10px;
-}
+  list-style-type: none; }
+  .dropselect-menu li {
+    padding: 0px;
+    width: 120px; }
+  .dropselect-menu a {
+    display: block;
+    color: #222222;
+    padding-left: 5px;
+    text-decoration: none;
+    height: 32px;
+    line-height: 32px; }
+    .dropselect-menu a:hover {
+      background-color: #3a4458;
+      color: white; }
