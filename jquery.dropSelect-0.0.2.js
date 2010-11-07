@@ -1,5 +1,4 @@
 /*
- * TODO: make stylable trough options 
  * TODO: ability to add custom class to menu, button etc
  * TODO: 3 styles: top/bottom/centered menu
  *
@@ -9,9 +8,8 @@
     $.fn.dropSelect = function(options) {
         var opts = $.extend({}, $.fn.dropSelect.defaults, options);
         return this.each(function() {
-            $this = $(this);
-            
-            // TODO: wrapp stuff in container div? 
+
+            var select = $this = $(this);
             var button = $('<a href="" class="dropselect-button">' + $this.find('option:selected').text() + '</a>').insertAfter(this);
             var dropdown = $('<ul class="dropselect-menu"></ul>').insertAfter(button);
 
@@ -28,22 +26,46 @@
                 dropdown.hide();
             });
 
-            // TODO: attach behaviour to menu links
+            dropdown.find('a').each(function() {
+                $(this).click(function(event) {
+                    updateDropdown(this, select, dropdown, button);
+                    event.preventDefault();
+                });
+            });
             
         });
     };
 
+    /*
+     *  Build menu from list options
+     */ 
     function buildMenu(select, dropdown) {
         select.children().each(function() {
             var option = $(this);
             if (option.attr('selected') == true) {
-                dropdown.append('<li class="selected">' + option.text() + '</li>');
+                dropdown.append('<li class="selected"><a href="">' + option.text() + '</a></li>');
             } else {
-                dropdown.append('<li>' + option.text() + '</li>');
+                dropdown.append('<li><a href="">' + option.text() + '</a></li>');
             };
         });
     };
 
+    /*
+     *  Updates DropDown and select with active option
+     *  TODO: make argument list shorter
+     */
+    function updateDropdown(option, select, dropdown, button) {
+        $(dropdown).hide();
+        $(select).find('option:selected').attr('selected', false);
+        var selected_option = $(select).find('*:contains(' + $(option).text() + ')');
+        selected_option.attr('selected', true);
+        selected_option.change();
+        button.click();
+    };
+
+    /*
+     * Plugin defaults
+     */
     $.fn.dropSelect.defaults = {
         hide_select: true
         // TODO: maybe add onChange callback? or just ajax submit url?
