@@ -27,17 +27,18 @@
         var opts = $.extend({}, $.fn.dropSelect.defaults, options);
         return this.each(function() {
 
-            var select = $this = $(this);
+            var $this = $(this);
+            var select = $this;
             var button = $('<a href="" class="dropselect-button">' + $this.find('option:selected').text() + '</a>').insertAfter(this);
             var dropdown = $('<ul class="dropselect-menu"></ul>').insertAfter(button);
 
             buildMenu($this, dropdown);
             dropdown.hide();
 
-            if (opts.hide_select == true) {
+            if (opts.hide_select === true) {
                 $this.hide();
-            };
-            
+            }
+
             button.toggle(function() {
                 dropdown.show();
                 }, function() {
@@ -60,13 +61,13 @@
     function buildMenu(select, dropdown) {
         select.children().each(function() {
             var option = $(this);
-            if (option.attr('selected') == true) {
+            if (option.attr('selected') === true) {
                 dropdown.append('<li class="selected"><a href="">' + option.text() + '</a></li>');
             } else {
                 dropdown.append('<li><a href="">' + option.text() + '</a></li>');
-            };
+            }
         });
-    };
+    }
 
     /*
      *  Updates DropDown and select with active option
@@ -79,7 +80,7 @@
         selected_option.attr('selected', true);
         selected_option.change();
         button.click();
-    };
+    }
 
     /*
      * Plugin defaults
